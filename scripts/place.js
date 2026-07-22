@@ -1,26 +1,19 @@
-const temperature = 30;
-const windSpeed = 15;
+const temperature = 30; // Static input in °C
+const windSpeed = 15;   // Static input in km/h
 
-function calculateWindChill(temp, speed) {
-    return (
-        13.12 +
-        0.6215 * temp -
-        11.37 * Math.pow(speed, 0.16) +
-        0.3965 * temp * Math.pow(speed, 0.16)
-    ).toFixed(1);
-}
+// Calculates Metric Wind Chill in a single line
+const calculateWindChill = (temp, speed) => 
+    (13.12 + 0.6215 * temp - 11.37 * Math.pow(speed, 0.16) + 0.3965 * temp * Math.pow(speed, 0.16)).toFixed(1);
 
-const windChill = document.getElementById("windchill");
+const windChillElement = document.getElementById("windchill");
 
+// Check Metric conditions: Temp <= 10°C and Wind Speed > 4.8 km/h
 if (temperature <= 10 && windSpeed > 4.8) {
-    windChill.textContent =
-        calculateWindChill(temperature, windSpeed) + " °C";
+    windChillElement.textContent = `${calculateWindChill(temperature, windSpeed)} °C`;
 } else {
-    windChill.textContent = "N/A";
+    windChillElement.textContent = "N/A";
 }
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-document.getElementById("lastModified").textContent =
-    document.lastModified;
+// Dynamic Footer Dates
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("lastModified").textContent = document.lastModified;

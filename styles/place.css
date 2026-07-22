@@ -1,131 +1,101 @@
-:root{
-
---primary:#0038A8;
---secondary:#CE1126;
---accent:#FCD116;
-
---light:#ffffff;
---dark:#222;
-
---shadow:0 2px 8px rgba(0,0,0,.25);
-
+:root {
+  --primary: #0038A8;
+  --secondary: #CE1126;
+  --accent: #FCD116;
+  --light: #ffffff;
+  --dark: #222222;
+  --bg-color: #f4f4f4;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-
-font-family:Arial, Helvetica, sans-serif;
-background:#f4f4f4;
-color:var(--dark);
-
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--dark);
 }
 
-header{
-
-background:var(--primary);
-color:white;
-padding:1rem;
-text-align:center;
-
+header {
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 1rem;
+  text-align: center;
 }
 
-.hero{
-
-width:100%;
-display:block;
-
+.hero {
+  width: 100%;
+  display: block;
+  height: auto;
 }
 
-.content{
-
-display:grid;
-gap:1rem;
-padding:1rem;
-
+.content {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.card{
-
-background:white;
-padding:1rem;
-border-radius:10px;
-box-shadow:var(--shadow);
-
+.card {
+  background-color: var(--light);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
 }
 
-.card h2{
-
-margin-bottom:1rem;
-color:var(--primary);
-
+.card h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
 }
 
-.card ul{
-
-list-style:none;
-line-height:2;
-
+.card ul {
+  list-style: none;
+  line-height: 2;
 }
 
-.weather-icon{
-
-width:60px;
-display:block;
-margin-bottom:1rem;
-
+.weather-icon {
+  width: 60px;
+  display: block;
+  margin-bottom: 1rem;
 }
 
-footer{
-
-background:var(--secondary);
-color:white;
-text-align:center;
-padding:1rem;
-
+footer {
+  background-color: var(--secondary);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
 }
 
-@media (min-width:768px){
+/* Wide View / Responsive Design */
+@media (min-width: 768px) {
+  main {
+    position: relative;
+  }
 
-main{
+  .content {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  }
 
-position:relative;
+  .card {
+    width: 300px;
+  }
 
-}
+  /* Hide vector SVG icon in desktop view */
+  .weather-icon {
+    display: none;
+  }
 
-.content{
-
-position:absolute;
-top:2rem;
-left:0;
-right:0;
-
-display:flex;
-justify-content:space-between;
-padding:2rem;
-
-}
-
-.card{
-
-width:300px;
-
-}
-
-.weather-icon{
-
-display:none;
-
-}
-
-.weather h2::after{
-
-content:" ⛅";
-
-}
-
+  /* Add emoticon via CSS pseudo-element for large screens */
+  .weather h2::after {
+    content: " ⛅";
+  }
 }
